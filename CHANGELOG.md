@@ -4,6 +4,7 @@
 
 ### Features
 
+* `IfcImporter.parseOnce` reads geometry and properties from a single parse of the file, instead of opening it a second time for properties, so a conversion no longer parses the IFC twice (or, with `readCallback`, reads it twice). Off by default; the output is identical either way.
 * `editor.getModelRequestsSince(modelId, from, generation)` returns only the requests added since an earlier call, so following the edit log of a long unsaved session no longer copies the whole log out of the worker on every read. If requests were undone, selected, set or reset in between, or the model was saved or loaded again, it returns all of them.
 
 ### Bug Fixes
